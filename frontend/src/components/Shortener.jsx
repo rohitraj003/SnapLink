@@ -9,14 +9,12 @@ const Shortener = () => {
 
     const token = localStorage.getItem('token'); 
 
-    if (!token) {
-        window.location.href = '/login';
-    }
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/url/shorten', 
+            const res = await axios.post('api/url/shorten', 
                 { longUrl },
                 { headers: { 'x-auth-token': token } }
             );
